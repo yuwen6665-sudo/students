@@ -1,0 +1,44 @@
+def get_scores():
+    scores = []
+    while True:
+        score =float(input("请输入成绩（输入-1结束）："))
+        if score == -1:
+            break                     
+        elif 0 <= score <= 100:            
+            scores.append(score)
+        else:
+            print("成绩必须在0到100之间，请重新输入。")
+    return scores
+
+def get_max_min(scores):     
+    if not scores:
+        return None, None
+    max = scores[0]
+    min = scores[0]
+    for sc in scores:
+        if sc > max:
+            max = sc
+        if sc < min:
+            min = sc
+    return max, min
+
+def get_stats(scores):
+    if not scores:
+        return 0, 0
+    count = 0
+    average = sum(scores) / len(scores)
+    for sc in scores:
+        if sc < 60:
+            count += 1
+    return average, count
+
+print("请输入学生成绩，输入-1结束：")
+scores = get_scores()
+print("成绩列表：", scores)
+
+max_score, min_score = get_max_min(scores)
+average, count = get_stats(scores)
+print("最高分：", max_score)
+print("最低分：", min_score)
+print("平均分：", average)
+print("不及格人数：", count)
