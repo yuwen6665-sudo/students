@@ -31,8 +31,26 @@
 # ============================================================
 
 # ↓↓↓ 在这里写你的代码 ↓↓↓
+def read_text(path):
+    try:
+        with open(path, "r", encoding="utf-8") as f:
+            return f.read()
+    except FileNotFoundError:
+        print("文件不存在：%s" % path)
+        return None
 
+PUNCT = ',.!?;:"\'()）'
+def clean_words(text):
+    text = text.lower()
+    for ch in PUNCT:
+        text = text.replace(ch, " ")
+    return text.split()
 
+# 先跑一下这两个函数
+print(read_text("sample.txt"))       # 一段文本
+print(read_text("没有.txt"))          # 文件不存在：没有.txt / None
+print(clean_words("Hello, World!"))  # ['hello', 'world']
+print(clean_words("It's a test...")) # ['it', 's', 'a', 'test']
 
 # ↑↑↑ 第 1 题写完到这里 ↑↑↑
 print()

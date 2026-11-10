@@ -1,0 +1,10 @@
+Python is a popular programming language. It is easy to learn and fun to use.
+Many beginners start with Python because the code looks clean and simple.
+A small program can read a file, count words, and print a report.
+This project does exactly that: it reads a text file, cleans the words, counts them, and shows the top results.
+Reading a file is simple. Writing clean code is harder.
+If a line is empty, skip it. If a word repeats, count it again.
+Good code is not about tricks. Good code is about clear logic and small steps.
+Practice every day, and your code will improve. Practice is the only way to learn a language well.
+Write code, read code, and test your code. Code that is never tested is code that will fail.
+Start small, keep going, and do not fear mistakes. Mistakes are part of the process.
