@@ -17,14 +17,14 @@ def add(records, item, raw):
     return True
 
 
-def show_list(items):
+def show_list(records):
     """打印任意记录列表，编号从 1 开始"""
-    if not items:
+    if not records:
         print("没有可显示的记录")
         return
     print("-" * 34)
-    for i in range(len(items)):
-        r = items[i]
+    for i in range(len(records)):
+        r = records[i]
         print("%d. %-10s %6d 元" % (i + 1, r["item"], r["money"]))
     print("-" * 34)
 

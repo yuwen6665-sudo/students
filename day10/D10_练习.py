@@ -28,7 +28,12 @@
 
 # ↓↓↓ 在这里写你的代码 ↓↓↓
 
-
+def two_sum(liet,num):
+    for i in range(len(list)):
+        for j in range(i+1,len(list)):
+            if num == list[i]+list[j]
+            return[i,j]
+    return []
 
 # ↑↑↑ 第 1 题写完到这里 ↑↑↑
 print()
@@ -52,7 +57,11 @@ print("=" * 46, "第 1 题 结束", "=" * 46)
 
 # ↓↓↓ 在这里写你的代码 ↓↓↓
 
-
+def is_palindrome(lest):
+    lest=lest.lower().strip()
+    if lest == lest[::-1]:
+        return True
+    return  False
 
 # ↑↑↑ 第 2 题写完到这里 ↑↑↑
 print()
@@ -77,6 +86,16 @@ print("=" * 46, "第 2 题 结束", "=" * 46)
 
 # ↓↓↓ 在这里写你的代码 ↓↓↓
 
+# ---- 第 3 题 字符频次 ----
+def char_count(s):
+    count = {}
+    for ch in s:
+        if ch == " ":
+            continue
+        count[ch] = count.get(ch, 0) + 1
+    items = list(count.items())
+    items.sort(key=lambda x: (-x[1], x[0]))
+    return items
 
 
 # ↑↑↑ 第 3 题写完到这里 ↑↑↑
@@ -101,6 +120,12 @@ print("=" * 46, "第 3 题 结束", "=" * 46)
 # ============================================================
 
 # ↓↓↓ 在这里写你的代码 ↓↓↓
+
+dedup = ([3,1,3,2,1,4])
+result=[]
+for ch in dedup:
+    if ch not in result:
+        dedup.append(ch)
 
 
 
@@ -135,6 +160,21 @@ print("=" * 46, "第 4 题 结束", "=" * 46)
 
 # ↓↓↓ 在这里写你的代码 ↓↓↓
 
+def max_sub(nums):
+    if not nums:
+        return 0
+    best = nums[0]
+    start = end = 0
+    for i in range(len(nums)):
+        cur = 0
+        for j in range(i, len(nums)):
+            cur += nums[j]
+            if cur > best:
+                best = cur
+                start = i
+                end = j
+    print(f"最大子数组：第 {start + 1}~{end + 1} 个，和 = {best}")
+    return best
 
 
 # ↑↑↑ 第 5 题写完到这里 ↑↑↑
@@ -175,16 +215,7 @@ print("5 题完成。每题记得走第 2 遍：关掉答案重写。")
 #   ② 空字符串 "" == ""[::-1] → True，边界自动正确
 #   ③ 这题一行就够，是"用对工具"的典型
 
-# ---- 第 3 题 字符频次 ----
-# def char_count(s):
-#     count = {}
-#     for ch in s:
-#         if ch == " ":
-#             continue
-#         count[ch] = count.get(ch, 0) + 1
-#     items = list(count.items())
-#     items.sort(key=lambda x: (-x[1], x[0]))
-#     return items
+
 #
 # 讲评：
 #   ① 和第 2 题（词频）代码几乎一样，只是单位从"词"变"字符"

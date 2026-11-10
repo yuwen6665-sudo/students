@@ -38,9 +38,11 @@ def read_text(path):
     except FileNotFoundError:
         print("文件不存在：%s" % path)
         return None
+    
 
-PUNCT = ',.!?;:"\'()）'
+
 def clean_words(text):
+    PUNCT = ',.!?;:"\'()）'
     text = text.lower()
     for ch in PUNCT:
         text = text.replace(ch, " ")
@@ -71,6 +73,13 @@ print("=" * 46, "第 1 题 结束", "=" * 46)
 
 # ↓↓↓ 在这里写你的代码 ↓↓↓
 
+def count_words(words):
+    counts = {}
+    for w in words:
+        counts[w] = counts.get(w, 0) + 1
+    return counts
+
+ 
 
 
 # ↑↑↑ 第 2 题写完到这里 ↑↑↑
@@ -94,6 +103,9 @@ print("=" * 46, "第 2 题 结束", "=" * 46)
 
 # ↓↓↓ 在这里写你的代码 ↓↓↓
 
+def top_n(count, n=10):
+    items = sorted(count.items(), key=lambda kv: (-kv[1], kv[0]))
+    return items[:n]
 
 
 # ↑↑↑ 第 3 题写完到这里 ↑↑↑
@@ -126,6 +138,12 @@ print("=" * 46, "第 3 题 结束", "=" * 46)
 # ============================================================
 
 # ↓↓↓ 在这里写你的代码 ↓↓↓
+def two_sum(nums, target):
+    for i in range(len(nums)):
+        for j in range(i + 1, len(nums)):
+            if nums[i] + nums[j] == target:
+                return [i, j]
+    return []
 
 
 
@@ -151,7 +169,9 @@ print("=" * 46, "第 4 题 结束", "=" * 46)
 
 # ↓↓↓ 在这里写你的代码 ↓↓↓
 
-
+# def is_palindrome(s):
+#     s = s.lower()
+#     return s == s[::-1]
 
 # ↑↑↑ 第 5 题写完到这里 ↑↑↑
 print()
@@ -175,8 +195,23 @@ print("=" * 46, "第 5 题 结束", "=" * 46)
 # ============================================================
 
 # ↓↓↓ 在这里写你的代码 ↓↓↓
+def char_count(s):
+    counts = {}
+    for ch in s:
+        if ch.isspace():
+            continue
+        counts[ch] = counts.get(ch, 0) + 1
+    return sorted(counts.items(), key=lambda kv: (-kv[1], kv[0]))
 
-
+def char_count(s):
+    count = {}
+    for ch in s:
+        if ch == " ":
+            continue                 # 跳过空格
+        count[ch] = count.get(ch, 0) + 1
+    items = list(count.items())
+    items.sort(key=lambda x: (-x[1], x[0]))
+    return items
 
 # ↑↑↑ 第 6 题写完到这里 ↑↑↑
 print()
